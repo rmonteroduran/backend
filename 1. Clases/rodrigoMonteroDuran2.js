@@ -1,12 +1,12 @@
 class Contenedor {
-    products = []
+    products
 
     constructor(id, title, price, thumbnail) {
         this.products = [{id: id, title: title, price: price, thumbnail: thumbnail}]
     }
 
-    save(product) {
-        this.products.push(product)
+    save(id, title, price, thumbnail) {
+        this.products.push({id: id, title: title, price: price, thumbnail: thumbnail})
         return 'Producto agregado.'
     }
 
@@ -50,12 +50,12 @@ const c1 = new Contenedor(
 )
 
 //guardo nuevo producto en contenedor
-console.log(c1.save({
-    id: 2,
-    title: 'sprite',
-    price: 170,
-    thumbnail: 'https://preview.free3d.com/img/2018/04/2279507753523218166/8x6qj8yj-900.jpg'
-}))
+console.log(c1.save(
+    2,
+    'sprite',
+    170,
+    'https://preview.free3d.com/img/2018/04/2279507753523218166/8x6qj8yj-900.jpg'
+))
 
 //obtengo todo el contenedor
 console.log(c1.getAll())
