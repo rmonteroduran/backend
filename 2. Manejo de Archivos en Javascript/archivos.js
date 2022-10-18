@@ -19,44 +19,47 @@ async function create(name, products) {
 
 class Contenedor {
     contentName
+    products
     
     constructor(name) {
         this.contentName = name
-        read(name)
-            .then(result => {
-                if (result == 'error') {
-                    create(name, [])
-                    console.log('Contenedor creado')
-                } else {
-                    console.log('Contenedor encontrado')
-                }
-            })
+        this.products = []
+        console.log('Contenedor creado')
     }
     
-    save(title, price, thumbnail) {
-        read(this.contentName).then(result => {
+    async save(title, price, thumbnail) {
+        await read(this.contentName).then(result => {
             if (result == 'error') {
-                console.log('No se encuentra archivo')
-            } else {
-                const ids = result.map(obj => obj.id)
-                const maxId = Math.max(...ids)
-                if (maxId == -Infinity) {
-                    result.push({id: 1, title: title, price: price, thumbnail: thumbnail})
+                if (this.products.length == 0) {
+                    this.products.push({id: 1, title: title, price: price, thumbnail: thumbnail})
                 } else {
-                    result.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
+                    const ids = this.products.map(obj => obj.id)
+                    const maxId = Math.max(...ids)
+                    this.products.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
                 }
-                create(this.contentName, result)
-                console.log(`Producto ${title} agregado`)
+            } else {
+                if (result.length == 0) {
+                    this.products.push({id: 1, title: title, price: price, thumbnail: thumbnail})
+                } else {
+                    const ids = result.map(obj => obj.id)
+                    const maxId = Math.max(...ids)
+                    this.products.push(...result)
+                    this.products.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
+                }                
             }
         })
+        //await create(this.contentName, this.products).then(
+        //    console.log(`Producto ${title} agregado`)
+        //)
+        fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
+        console.log(`Producto ${title} agregado`)//
     }
 
-    getById(id) {
-        read(this.contentName).then(result => {
+    async getById(id) {
+        await read(this.contentName).then(result => {
             if (result == 'error') {
                 console.log('No se encuentra archivo')
             } else {
-                console.log(result)
                 let a = result.find(el => el.id === id)
                 if (a) {
                     console.log('El producto ' + a.id + ' es ' + a.title) 
@@ -67,8 +70,8 @@ class Contenedor {
         })
     }
 
-    getAll() {
-        read(this.contentName).then(result => {
+    async getAll() {
+        await read(this.contentName).then(result => {
             if (result == 'error') {
                 console.log('No se encuentra archivo')
             } else {
@@ -77,8 +80,8 @@ class Contenedor {
         })
     }
 
-    deleteById(id) {
-        read(this.contentName).then(result => {
+    async deleteById(id) {
+        await read(this.contentName).then(result => {
             if (result == 'error') {
                 console.log('No se encuentra archivo')
             } else {
@@ -86,7 +89,8 @@ class Contenedor {
                 if (a) {
                     const filterProducts = result.filter((el) => el.id !== id)
                     this.products = filterProducts
-                    create(this.contentName, this.products)
+                    //create(this.contentName, this.products)
+                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
                     console.log('Producto ' + a.id + ' (' + a.title + ') eliminado.')
                 } else {
                     console.log('Producto no encontrado')
@@ -95,13 +99,14 @@ class Contenedor {
         })
     }
 
-    deleteAll() {
-        read(this.contentName).then(result => {
+    async deleteAll() {
+        await read(this.contentName).then(result => {
             if (result == 'error') {
                 console.log('No se encuentra archivo')
             } else {
                 this.products = []
-                create(this.contentName, this.products)
+                //create(this.contentName, this.products)
+                fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
                 console.log('Todos los productos eliminados')
             }
         })
@@ -113,7 +118,15 @@ const c1 = new Contenedor('productos')
 
 //agrego productos
 c1.save('coca cola',170,'https://jumboargentina.com/coca')
-c1.save('sprite',150,'https://jumboargentina..com/sprite')
 
 //get con id
 c1.getById(1)
+
+//get all
+c1.getAll()
+
+//delete by id
+//c1.deleteById(1)
+
+//delete all
+//c1.deleteAll()

@@ -1,13 +1,15 @@
 class Contenedor {
     products
 
-    constructor(id, title, price, thumbnail) {
-        this.products = [{id: id, title: title, price: price, thumbnail: thumbnail}]
+    constructor(title, price, thumbnail) {
+        this.products = [{id: 1, title: title, price: price, thumbnail: thumbnail}]
     }
 
-    save(id, title, price, thumbnail) {
-        this.products.push({id: id, title: title, price: price, thumbnail: thumbnail})
-        return 'Producto agregado.'
+    save(title, price, thumbnail) {
+        const ids = this.products.map(obj => obj.id)
+        const maxId = Math.max(...ids)
+        this.products.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
+        return `Producto agregado, id: ${maxId + 1}`
     }
 
     getById(id) {
