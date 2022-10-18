@@ -24,7 +24,6 @@ class Contenedor {
     constructor(name) {
         this.contentName = name
         this.products = []
-        console.log('Contenedor creado')
     }
     
     async save(title, price, thumbnail) {
@@ -51,39 +50,44 @@ class Contenedor {
             this.products.push({id: newId, title: title, price: price, thumbnail: thumbnail})
         })
         await create(this.contentName, this.products).then(
-            console.log(`Producto ${title} agregado, id: ${newId}`)
         )
+        return newId
     }
 
     async getById(id) {
+        let resultById
         await read(this.contentName).then(result => {
             if (result == 'error') {
-                console.log('No se encuentra archivo')
+                resultById = 'No se encuentra archivo'
             } else {
                 let a = result.find(el => el.id === id)
                 if (a) {
-                    console.log(a) 
+                    resultById = a
                 } else {
-                    console.log('Producto no encontrado')
+                    resultById = 'Producto no encontrado'
                 }
             }
         })
+        return resultById
     }
 
     async getAll() {
+        let resultAll
         await read(this.contentName).then(result => {
             if (result == 'error') {
-                console.log('No se encuentra archivo')
+                resultAll = 'No se encuentra archivo'
             } else {
-                console.log(result)
+                resultAll = result
             }
         })
+        return resultAll
     }
 
     async deleteById(id) {
+        let resultDeleteById
         await read(this.contentName).then(result => {
             if (result == 'error') {
-                console.log('No se encuentra archivo')
+                resultDeleteById = 'No se encuentra archivo'
             } else {
                 let a = result.find(el => el.id === id)
                 if (a) {
@@ -91,27 +95,30 @@ class Contenedor {
                     this.products = filterProducts
                     //create(this.contentName, this.products)
                     create(this.contentName, this.products).then(
-                        console.log('Producto ' + a.id + ' (' + a.title + ') eliminado.')
+                        resultDeleteById = 'Producto ' + a.id + ' (' + a.title + ') eliminado.'
                     )
                 } else {
-                    console.log('Producto no encontrado')
+                    resultDeleteById = 'Producto no encontrado'
                 }
             }
         })
+        return resultDeleteById
     }
 
     async deleteAll() {
+        let resultDeleteAll
         await read(this.contentName).then(result => {
             if (result == 'error') {
-                console.log('No se encuentra archivo')
+                resultDeleteAll = 'No se encuentra archivo'
             } else {
                 this.products = []
                 //create(this.contentName, this.products)
                 create(this.contentName, this.products).then(
-                    console.log('Todos los productos eliminados')
+                    resultDeleteAll = 'Todos los productos fueron eliminados'
                 )
             }
         })
+        return resultDeleteAll
     }
 }
 
@@ -121,24 +128,24 @@ async function main() {
     const c1 =  await new Contenedor('productos')
     
     //agrego productos
-    await c1.save('coca cola',170,'https://jumboargentina.com/coca')
-    await c1.save('sprite',170,'https://jumboargentina.com/sprite')
+    console.log(await c1.save('coca cola',170,'https://jumboargentina.com/coca'))
+    console.log(await c1.save('sprite',170,'https://jumboargentina.com/sprite'))
     
     //get con id
-    await c1.getById(2)
+    console.log(await c1.getById(1))
     
     //delete by id
-    await c1.deleteById(2)
+    console.log(await c1.deleteById(2))
     
     //get all
-    await c1.getAll()
+    console.log(await c1.getAll())
     
     //agrego mas productos
-    await c1.save('fanta',170,'https://jumboargentina.com/fanta')
-    await c1.save('pepsi',170,'https://jumboargentina.com/pepsi')
+    console.log(await c1.save('fanta',170,'https://jumboargentina.com/fanta'))
+    console.log(await c1.save('pepsi',170,'https://jumboargentina.com/pepsi'))
 
     //get all
-    await c1.getAll()
+    console.log(await c1.getAll())
     
     //delete all
     //await c1.deleteAll()
