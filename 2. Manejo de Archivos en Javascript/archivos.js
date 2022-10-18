@@ -32,27 +32,30 @@ class Contenedor {
             if (result == 'error') {
                 if (this.products.length == 0) {
                     this.products.push({id: 1, title: title, price: price, thumbnail: thumbnail})
+                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
+                    console.log(`Producto ${title} agregado, id: 1`)//
                 } else {
                     const ids = this.products.map(obj => obj.id)
                     const maxId = Math.max(...ids)
                     this.products.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
+                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
+                    console.log(`Producto ${title} agregado, id: ${maxId + 1}`)//
                 }
             } else {
                 if (result.length == 0) {
                     this.products.push({id: 1, title: title, price: price, thumbnail: thumbnail})
+                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
+                    console.log(`Producto ${title} agregado, id: 1`)//
                 } else {
                     const ids = result.map(obj => obj.id)
                     const maxId = Math.max(...ids)
                     this.products.push(...result)
                     this.products.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
+                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
+                    console.log(`Producto ${title} agregado, id: ${maxId + 1}`)//
                 }                
             }
         })
-        //await create(this.contentName, this.products).then(
-        //    console.log(`Producto ${title} agregado`)
-        //)
-        fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
-        console.log(`Producto ${title} agregado`)//
     }
 
     async getById(id) {

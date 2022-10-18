@@ -1,1 +1,1 @@
-[]
+[{"id":1,"title":"coca cola","price":170,"thumbnail":"https://jumboargentina.com/coca"},{"id":2,"title":"coca cola","price":170,"thumbnail":"https://jumboargentina.com/coca"}]
