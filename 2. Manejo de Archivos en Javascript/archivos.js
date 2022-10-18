@@ -62,7 +62,7 @@ class Contenedor {
             } else {
                 let a = result.find(el => el.id === id)
                 if (a) {
-                    console.log('El producto ' + a.id + ' es ' + a.title) 
+                    console.log(a) 
                 } else {
                     console.log('Producto no encontrado')
                 }
@@ -127,12 +127,12 @@ async function main() {
     //get con id
     await c1.getById(2)
     
+    //delete by id
+    await c1.deleteById(2)
+    
     //get all
     await c1.getAll()
     
-    //delete by id
-    await c1.deleteById(1)
-
     //agrego mas productos
     await c1.save('fanta',170,'https://jumboargentina.com/fanta')
     await c1.save('pepsi',170,'https://jumboargentina.com/pepsi')
