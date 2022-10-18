@@ -28,34 +28,31 @@ class Contenedor {
     }
     
     async save(title, price, thumbnail) {
+        let newId
         await read(this.contentName).then(result => {
             if (result == 'error') {
                 if (this.products.length == 0) {
-                    this.products.push({id: 1, title: title, price: price, thumbnail: thumbnail})
-                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
-                    console.log(`Producto ${title} agregado, id: 1`)//
+                    newId = 1
                 } else {
                     const ids = this.products.map(obj => obj.id)
                     const maxId = Math.max(...ids)
-                    this.products.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
-                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
-                    console.log(`Producto ${title} agregado, id: ${maxId + 1}`)//
+                    newId = maxId + 1
                 }
             } else {
                 if (result.length == 0) {
-                    this.products.push({id: 1, title: title, price: price, thumbnail: thumbnail})
-                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
-                    console.log(`Producto ${title} agregado, id: 1`)//
+                    newId = 1
                 } else {
                     const ids = result.map(obj => obj.id)
                     const maxId = Math.max(...ids)
-                    this.products.push(...result)
-                    this.products.push({id: maxId + 1, title: title, price: price, thumbnail: thumbnail})
-                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
-                    console.log(`Producto ${title} agregado, id: ${maxId + 1}`)//
+                    newId = maxId + 1
+                    this.products = result
                 }                
             }
+            this.products.push({id: newId, title: title, price: price, thumbnail: thumbnail})
         })
+        await create(this.contentName, this.products).then(
+            console.log(`Producto ${title} agregado, id: ${newId}`)
+        )
     }
 
     async getById(id) {
@@ -93,8 +90,9 @@ class Contenedor {
                     const filterProducts = result.filter((el) => el.id !== id)
                     this.products = filterProducts
                     //create(this.contentName, this.products)
-                    fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
-                    console.log('Producto ' + a.id + ' (' + a.title + ') eliminado.')
+                    create(this.contentName, this.products).then(
+                        console.log('Producto ' + a.id + ' (' + a.title + ') eliminado.')
+                    )
                 } else {
                     console.log('Producto no encontrado')
                 }
@@ -109,27 +107,41 @@ class Contenedor {
             } else {
                 this.products = []
                 //create(this.contentName, this.products)
-                fs.writeFileSync(`./${this.contentName}.txt`,JSON.stringify(this.products))
-                console.log('Todos los productos eliminados')
+                create(this.contentName, this.products).then(
+                    console.log('Todos los productos eliminados')
+                )
             }
         })
     }
 }
 
-//creo el contenedor
-const c1 = new Contenedor('productos')
 
-//agrego productos
-c1.save('coca cola',170,'https://jumboargentina.com/coca')
+async function main() {
+    //creo el contenedor
+    const c1 =  await new Contenedor('productos')
+    
+    //agrego productos
+    await c1.save('coca cola',170,'https://jumboargentina.com/coca')
+    await c1.save('sprite',170,'https://jumboargentina.com/sprite')
+    
+    //get con id
+    await c1.getById(2)
+    
+    //get all
+    await c1.getAll()
+    
+    //delete by id
+    await c1.deleteById(1)
 
-//get con id
-c1.getById(1)
+    //agrego mas productos
+    await c1.save('fanta',170,'https://jumboargentina.com/fanta')
+    await c1.save('pepsi',170,'https://jumboargentina.com/pepsi')
 
-//get all
-c1.getAll()
+    //get all
+    await c1.getAll()
+    
+    //delete all
+    //await c1.deleteAll()
+}
 
-//delete by id
-//c1.deleteById(1)
-
-//delete all
-//c1.deleteAll()
+main()
