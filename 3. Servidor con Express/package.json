@@ -1,0 +1,12 @@
+{
+  "name": "3.-servidor-con-express",
+  "version": "1.0.0",
+  "description": "desafio servidor",
+  "main": "main.js",
+  "scripts": {},
+  "author": "rodrigo montero",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
