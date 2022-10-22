@@ -64,5 +64,6 @@ function conectar(puerto) {
     })
 }
 
+
 module.exports = { conectar }
 
