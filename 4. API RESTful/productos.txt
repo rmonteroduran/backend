@@ -1,0 +1,1 @@
+[{"title":"coca","price":"11","thumbnail":"http://coca.com","id":"2e22cef1-41cd-4d5b-bfc7-086194a533c9"},{"title":"sprite","price":"55","thumbnail":"http://sprite.com","id":"63613fa9-bc53-4de5-822f-48d17b8e9c1a"},{"title":"agua","price":"100","thumbnail":"http://agua.com","id":"57aab8a2-3767-4db8-8834-ad9df7f548fd"}]
