@@ -1,0 +1,25 @@
+<div class="center">
+    <h1>{{mensaje}}</h1>
+    <div class="tabla">
+        {{#if resultado}}
+            <table>
+                <tr>
+                    <th>nombre</th>
+                    <th>precio</th>
+                    <th>imagen</th>
+                </tr>
+                {{#each resultado}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>${{price}}</td>
+                        <td><img src={{thumbnail}} alt=""></td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{else}}
+            <h3>No hay productos</h3>
+        {{/if}}
+    </div>
+    <hr>
+    <a href="/" class="btn btn-primary">Agregar Producto</a>
+</div>
