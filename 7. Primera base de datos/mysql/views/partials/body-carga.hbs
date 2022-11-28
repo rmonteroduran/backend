@@ -1,0 +1,38 @@
+<div id="marco" class="center">
+    <h1>{{mensaje}}</h1>
+    <div>
+        <div class="form-group">
+            <input id="inputNombre" type="text" class="form-control" name="title" required="required">
+            <span>producto</span>
+        </div>
+        <div class="form-group">
+            <input id="inputPrecio" type="text" class="form-control" name="price" required="required">
+            <span>precio</span>
+        </div>
+        <div class="form-group">
+            <input id="inputImagen" type="text" class="form-control" name="thumbnail" required="required">
+            <span>url imagen</span>
+        </div>
+        <div class="form-group buttons">
+            <button id="botonEnviarProducto" class="btn btn-primary">Agregar</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id="listaProductos"></div>
+    <hr>
+    <h1>Comentarios</h1>
+    <div>
+        <div class="form-group">
+            <input id="inputAutor" class="form-control" type="text" placeholder="nombre" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputMensaje" class="form-control" type="text" placeholder="mensaje" required="required">
+        </div>
+        <div class="form-group buttons">
+            <button id="botonEnviar" class="btn btn-primary">Enviar</button>
+        </div>
+    </div>
+    <div id="listaMensajes"></div>
+</div>
+<script src="/js/index.js"></script>
