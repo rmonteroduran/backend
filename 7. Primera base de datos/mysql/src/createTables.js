@@ -19,3 +19,23 @@ knex.schema.hasTable('productos')
     .finally(() => {
         knex.destroy()
     })
+
+knex.schema.hasTable('mensajes')
+    .then(exists => {
+        if (!exists) {
+            knex.schema.createTable('mensajes', tabla => {
+                tabla.string('id'),
+                    tabla.string('autor'),
+                    tabla.string('texto'),
+                    tabla.datetime('fecha')
+            })
+                .then(() => {
+                    console.log('tabla "mensajes" creada!')
+                })
+        } else {
+            console.log('la tabla "mensajes" ya existe. no se realizaron cambios')
+        }
+    })
+    .finally(() => {
+        knex.destroy()
+    })
