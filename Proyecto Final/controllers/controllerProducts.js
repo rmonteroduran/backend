@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import { read, update } from '../containers/container.js'
+import { read, update } from '../containers/containerFirestore.js'
 
 async function controllerGetProducts(req, res) {
     await read("products")
