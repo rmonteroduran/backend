@@ -3,6 +3,10 @@
 ## 🏫 Comisión 32185
 ## 👨🏻‍🎓 Rodrigo Montero Durán
 
+### ✏️ Segunda Entrega Proyecto Final
+- Incorporación containers Firestore y MongoDb
+- CRUD
+- Config para administración de conexiones
 ### ✏️ Primera Entrega Proyecto Final
 - Router base 'api/products' con funcionalidades requeridas
 - Router base 'api/shoppingcart' con funcionalidades requeridas
