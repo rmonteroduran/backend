@@ -53,13 +53,14 @@ async function manejarEventoProductos(productos) {
 
 function mostrarMensajes(mensajes, compresion) {
     var data = []
-    data.push(mensajes)
+    data.push(...mensajes)
     const mensajesParaMostrar = data.map(({ fecha, autor, texto }) => {
-        return `<div class="chat"><p>${fecha}</p><p>compresion: ${compresion}%</p></p><div class="msg"><h5>${autor.alias}:</h5>&nbsp&nbsp<p>${texto}</p></div></div>`
+        return `<div class="chat"><p>${fecha}</p></p><div class="msg"><h5>${autor.alias}:</h5>&nbsp&nbsp<p>${texto}</p></div></div>`
     })
 
     const mensajesHtml = `
 <div>
+<p>compresión: ${compresion}%</p>
 ${mensajesParaMostrar.join('\n')}
 </div>`
 
@@ -72,15 +73,16 @@ socket.on('mensajesActualizados', mensajes => {
     const autorSchema = new normalizr.schema.Entity('autores', {}, {idAttribute: 'email' });
     const mensajeSchema = new normalizr.schema.Entity('mensajes', {
         autor: autorSchema,
-    }, {idAttribute: 'id' });
-    const denormalizeMensajes = normalizr.denormalize(mensajes.result, mensajeSchema, mensajes.entities);
-    
+    });
+    const comentariosSchema = new normalizr.schema.Array(mensajeSchema)
+    const denormalizeMensajes = normalizr.denormalize(mensajes.result, comentariosSchema, mensajes.entities);
+
     const longN = JSON.stringify(mensajes).length
-    console.log('Longitud objeto normalizado: ', longN)
+    //console.log('Longitud objeto normalizado: ', longN)
     const longD = JSON.stringify(denormalizeMensajes).length
-    console.log('Longitud objeto desnormalizado: ', longD)
+    //console.log('Longitud objeto desnormalizado: ', longD)
     const porcentajeC = (longN * 100) / longD
-    console.log('Porcentaje de compresión: ', porcentajeC.toFixed(2) + '%')
+    //console.log('Porcentaje de compresión: ', porcentajeC.toFixed(2) + '%')
     
     mostrarMensajes(denormalizeMensajes, porcentajeC.toFixed(2))
 })

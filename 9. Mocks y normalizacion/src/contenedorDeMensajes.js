@@ -8,12 +8,9 @@ async function read() {
         const mensajeSchema = new schema.Entity('mensajes', {
             autor: autorSchema,
         });
-        const comentariosSchema = new schema.Entity('mensajes', {
-            autor: autorSchema,
-        }, {idAttribute: 'id' });
-        const data = JSON.parse(await fs.promises.readFile(`./mensajes.txt`))
-        const normalizeMensajes = normalize(data, mensajeSchema);
-        console.log(normalizeMensajes)
+        const comentariosSchema = new schema.Array(mensajeSchema)
+        const data = JSON.parse(await fs.promises.readFile(`./mensajes.txt`,'utf-8'))
+        const normalizeMensajes = normalize(data, comentariosSchema);
         return normalizeMensajes
     } catch (err) {
         return(err)
@@ -23,8 +20,9 @@ async function read() {
 async function add(data) {
     try {
         data.id = randomUUID()
-        //const mensajes = JSON.parse(await fs.promises.readFile(`./mensajes.txt`))
-        fs.promises.writeFile(`./mensajes.txt`,JSON.stringify(data))
+        var mensajes = JSON.parse(await fs.promises.readFile(`./mensajes.txt`,'utf-8'))
+        mensajes.push(data)
+        fs.promises.writeFile(`./mensajes.txt`,JSON.stringify(mensajes))
     } catch (err) {
         return(err)
     }
