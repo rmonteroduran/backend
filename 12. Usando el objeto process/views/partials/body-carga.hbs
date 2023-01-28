@@ -1,0 +1,84 @@
+<div id="marco" class="center">
+    <div>
+        {{#if sesion}}
+            <form class="sesionForm" action="/logout" method="GET">
+                <div class="form-group">
+                    <h4 class="bienvenidaUsuario">Bienvenid@ {{sesion}}!</h4>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" id="botonSesion">Cerrar sesión</button>
+                </div>
+            </form>
+        {{else}}
+            <form class="sesionForm" action="/login" method="GET">
+                <div class="form-group">
+                    <input id="username" type="text" class="form-control" placeholder="usuario" name="username" required="required">
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" class="form-control" placeholder="contraseña" name="password" required="required">
+                </div>
+                <div class="botonesForm">
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="botonSesion">Iniciar sesión</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="http://localhost:8080/registro" class="btn btn-secondary">Registrarse</a>
+                    </div>
+                </div>
+            </form>
+        {{/if}}
+        {{#if autorizacion}}
+            <p class="usuarioRegistrado">{{autorizacion}}</p>
+        {{/if}}
+    </div>
+    <br>
+    <hr>
+    <h1>{{mensaje}}</h1>
+    <div>
+        <div class="form-group">
+            <input id="inputTitulo" type="text" class="form-control" placeholder="producto" name="title" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputPrecio" type="text" class="form-control" placeholder="precio" name="price" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputImagen" type="text" class="form-control" placeholder="url imagen" name="thumbnail" required="required">
+        </div>
+        <div class="form-group buttons">
+            <button id="botonEnviarProducto" class="btn btn-primary">Agregar</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id="listaProductos"></div>
+    <hr>
+    <h1>Comentarios</h1>
+    <div>
+        <div class="form-group">
+            <input id="inputEmail" class="form-control" type="text" placeholder="email" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputNombre" class="form-control" type="text" placeholder="nombre" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputApellido" class="form-control" type="text" placeholder="apellido" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputEdad" class="form-control" type="text" placeholder="edad" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputAlias" class="form-control" type="text" placeholder="alias" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputAvatar" class="form-control" type="text" placeholder="avatar" required="required">
+        </div>
+        <div class="form-group">
+            <input id="inputMensaje" class="form-control" type="text" placeholder="mensaje" required="required">
+        </div>
+        <div class="form-group buttons">
+            <button id="botonEnviar" class="btn btn-primary">Enviar</button>
+        </div>
+    </div>
+    <div id="listaMensajes"></div>
+</div>
+<script src="/js/index.js"></script>
