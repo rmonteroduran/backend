@@ -1,0 +1,25 @@
+<div id="marco" class="center">
+    <h1>{{mensaje}}</h1>
+    <div>
+        <form class="sesionForm" action="/nuevo-usuario" method="GET">
+            <div class="form-group">
+                <input id="username" type="text" class="form-control" placeholder="usuario" name="username" required="required">
+            </div>
+            <div class="form-group">
+                <input id="password" type="password" class="form-control" placeholder="contraseña" name="password" required="required">
+            </div>
+            <div class="botonesForm">
+                <div class="form-group">
+                    <button class="btn btn-primary" id="botonCrearUsuario">Crear Usuario</button>
+                </div>
+                <div class="form-group">
+                    <a href="http://localhost/" class="btn btn-secondary">Iniciar sesión</a>
+                </div>
+            </div>
+        </form>
+        {{#if error}}
+            <p class="usuarioRegistrado">{{error}}</p>
+        {{/if}}
+    </div>
+</div>
+<script src="/js/index.js"></script>

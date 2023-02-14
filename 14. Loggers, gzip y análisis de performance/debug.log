@@ -1,0 +1,7 @@
+{"level":30,"time":1676384387824,"pid":13799,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Servidor express modo fork escuchando en el puerto 8080"}
+{"level":50,"time":1676384403420,"pid":13799,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Login error: credenciales no válidas"}
+{"level":40,"time":1676384403528,"pid":13799,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Ruta GET /login?username=rodri&password=asd no implementada"}
+{"level":50,"time":1676384408939,"pid":13799,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Login error: credenciales no válidas"}
+{"level":40,"time":1676384409044,"pid":13799,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Ruta GET /login?username=rodri&password=cleaat no implementada"}
+{"level":30,"time":1676384414140,"pid":13799,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Login exitoso de usuario: rodri "}
+{"level":30,"time":1676384417738,"pid":13799,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Logout exitoso de usuario: rodri "}
