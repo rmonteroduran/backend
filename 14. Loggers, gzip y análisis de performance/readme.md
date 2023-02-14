@@ -1,8 +1,8 @@
 # prof
 
 ###### `node --prof src/main.js`
-###### `--prof-process isolate-0x140008000-4785-v8.log` 
-###### `--prof-process isolate-0x130008000-4886-v8.log`
+###### `node --prof-process isolate-0x140008000-4785-v8.log` 
+###### `node --prof-process isolate-0x130008000-4886-v8.log`
 
 # artillery test
 
