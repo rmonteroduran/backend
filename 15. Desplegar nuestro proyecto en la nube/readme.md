@@ -8,7 +8,7 @@
 - Despliegue de proyecto en AWS Elastic Beanstalk
 
 ### ✏️ Enlace de aplicación en AWS:
-- 
+- http://coderhouseproductos-env.eba-4ku2nrhv.us-east-1.elasticbeanstalk.com/
 
 
 
