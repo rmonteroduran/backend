@@ -3,6 +3,12 @@
 ## 🏫 Comisión 32185
 ## 👨🏻‍🎓 Rodrigo Montero Durán
 
+### ✏️ Tercera Entrega Proyecto Final
+- Migración de bases a MongoDB Atlas
+- Incorporación logger pino
+- Configuración modo cluster y fork a traves de variable de entorno
+- Envío de correos a usuario y administrador al finalizar compra de carrito y aviso de nuevo registro de usuario a administrador a traves de nodemailer
+- Passport local para registro de usuarios y manejo de sesiones
 ### ✏️ Segunda Entrega Proyecto Final
 - Incorporación containers Firestore y MongoDb
 - CRUD

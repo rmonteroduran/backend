@@ -1,6 +1,8 @@
 import { passEncryptor } from '../controllers/jwt.js';
 import { read, add } from '../containers/containerMongoDb.js'
 import logger from '../config/logger.js'
+import { admin_email } from '../config/config.js';
+import { emailSender } from '../messaging/emailSender.js';
 
 async function controllerRegister(req, res) {
     const { email, password, name, lastname, image, rol} = req.body
@@ -19,6 +21,12 @@ async function controllerRegister(req, res) {
                 const user = req.body
                 user.password = passEncryptor(password);
                 await add('users', user)
+                await emailSender.send({
+                    from: 'Coderhouse Backend 32185 Productos',
+                    to: admin_email,
+                    subject: `Nuevo registro de usuario ${email}`,
+                    html: `<h1>Nuevo registro de usuario</h1><p>Email: ${email}</p><p>Nombre: ${name}</p><p>Apellido: ${lastname}</p><p>Rol: ${rol}</p>`
+                })
                 logger.info(`Registro exitoso de usuario: ${email} `)
                 res.json({email: email, name: name, lastname: lastname, rol: rol});
             }
