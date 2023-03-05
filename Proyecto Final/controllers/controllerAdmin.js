@@ -1,45 +1,29 @@
-import { read, update } from '../containers/containerMemoria.js'
+import { read} from '../containers/containerMongoDb.js'
+import logger from '../config/logger.js'
 
 async function adminCheck(req, res, next) {
-    await read('users')
-    .then(result => {
-        if (result.admin == true) {
-            next()
-        } else {
-            res.sendStatus(403)
-        }
-    })
-    .catch(err => {
-        res.status(500)
-        res.json(err)
-    })
+    if (req.isAuthenticated()) {
+        await read('users')
+        .then(result => {
+            const user = result.find(r => r.email === req.user.email)
+            if (user.rol === "admin") {
+                next()
+            } else {
+                logger.error(`Admin check: usuario no autorizado ${req.user.email}`)
+                res.status(403)
+                res.json('Usuario no autorizado')
+            }
+        })
+        .catch(err => {
+            logger.error(`Admin check error: ${err}`)
+            res.status(500)
+            res.json(err)
+        })
+    } else {
+        logger.error(`Admin check: usuario no autenticado`)
+        res.status(403)
+        res.json('Usuario no autenticado')
+    }
 }
 
-async function controllerPostLogin(req, res) {
-    const status = {admin: true}
-    await update('users', status)
-    .then(result => {
-        res.status(200)
-        res.json(status)
-    })
-    .catch(err => {
-        res.status(500)
-        res.json(err)
-    })
-}
-
-async function controllerPostLogout(req, res) {
-    const status = {admin: false}
-    await update('users', status)
-    .then(result => {
-        res.status(200)
-        res.json(status)
-    })
-    .catch(err => {
-        res.status(500)
-        res.json(err)
-    })
-}
-
-export { controllerPostLogin,
-    controllerPostLogout, adminCheck }
+export { adminCheck }

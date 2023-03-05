@@ -1,0 +1,5 @@
+{"level":30,"time":1677965204823,"pid":18182,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Servidor express modo fork escuchando en el puerto 8080"}
+{"level":50,"time":1677965245026,"pid":18182,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Register error: usuario ya registrado"}
+{"level":30,"time":1677965268185,"pid":18182,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Login exitoso de usuario: alyson.fritsch37@ethereal.email "}
+{"level":30,"time":1677965271230,"pid":18182,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Logout exitoso de usuario: alyson.fritsch37@ethereal.email "}
+{"level":50,"time":1677965349018,"pid":18182,"hostname":"Air-de-Rodrigo.fibertel.com.ar","msg":"Authentication error: usuario no autenticado"}
