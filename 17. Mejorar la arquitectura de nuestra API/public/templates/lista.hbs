@@ -1,0 +1,30 @@
+<style>
+    .table td,
+    .table th {
+        vertical-align: middle;
+    }
+</style>
+
+<div>
+    <h1>Lista de Productos</h1>
+    <div class="tabla">
+        {{#if productos}}
+            <table>
+                <tr>
+                    <th>nombre</th>
+                    <th>precio</th>
+                    <th>imagen</th>
+                </tr>
+                {{#each productos}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>${{price}}</td>
+                        <td><img src={{thumbnail}} alt=""></td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{else}}
+            <h3>No hay productos</h3>
+        {{/if}}
+    </div>
+</div>
