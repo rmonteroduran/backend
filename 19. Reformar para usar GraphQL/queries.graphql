@@ -1,0 +1,59 @@
+mutation {
+  postProduct(datos: {
+    title: "heineken",
+    price: "250"
+    thumbnail: "https://bodegueando.com/4101-large_default/heineken-lata-5-33cl.jpg"
+  }) {
+    _id
+  }
+}
+
+# mutation { postProduct(datos: { title: \"heineken\", price: \"250\", thumbnail: \"https://bodegueando.com/4101-large_default/heineken-lata-5-33cl.jpg\"}) { _id }}
+
+query {
+  getProducts {
+    _id
+    title
+    price
+    thumbnail
+  }
+}
+
+# query { getProducts { _id title price thumbnail }}
+
+query { 
+  getProductId(id: "79a48d30-fe24-4d30-925b-919afe537fd7") {
+    _id
+    title
+    price
+    thumbnail
+  }
+}
+
+# query { getProductId(id: \"79a48d30-fe24-4d30-925b-919afe537fd7\") { _id title price thumbnail }}
+
+mutation {
+  putProduct(id: "79a48d30-fe24-4d30-925b-919afe537fd7", datos: {
+    title: "quilmes",
+    price: "145",
+    thumbnail: "https://alemaxikiosco.com.ar/wp-content/uploads/2020/09/quilmes.jpg"
+  }) {
+    _id
+    title
+    price
+    thumbnail
+  }
+}
+
+# mutation { putProduct(id: \"79a48d30-fe24-4d30-925b-919afe537fd7\", datos: { title: \"quilmes\", price: \"145\", thumbnail: \"https://alemaxikiosco.com.ar/wp-content/uploads/2020/09/quilmes.jpg\"}) { _id title price thumbnail }}
+
+mutation {
+  delProduct(id: "79a48d30-fe24-4d30-925b-919afe537fd7") {
+    _id
+    title
+    price
+    thumbnail
+  }
+}
+
+# mutation { delProduct(id: \"c3e9bdc6-bb19-4c9b-bb0b-0ff3a780afae\") { _id title price thumbnail }}
