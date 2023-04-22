@@ -1,8 +1,8 @@
-import { PORT, MODE } from './config/config.js'
-import { httpServer } from './server.js'
+import { PORT, MODE } from '../src/config/config.js'
+import { httpServer } from './app/server.js'
 import cluster from 'cluster'
 import { cpus } from 'os'
-import logger from './config/logger.js'
+import logger from '../src/services/logger.js'
 
 if (MODE === 'cluster') {
 

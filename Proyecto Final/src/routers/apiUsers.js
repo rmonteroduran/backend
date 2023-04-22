@@ -1,5 +1,9 @@
 import express from 'express';
-import { controllerRegister, controllerInfoUser, controllerLogin, controllerLogout, checkAuthentication } from '../controllers/controllerUsers.js';
+import { postUser,
+        getUser,
+        controllerLogin,
+        controllerLogout,
+        checkAuthentication } from '../controllers/usersController.js';
 import { Strategy as LocalStrategy } from 'passport-local'
 import { passDecryptor } from '../controllers/jwt.js';
 import passport from 'passport'
@@ -30,8 +34,8 @@ passport.use('login', new LocalStrategy(
 )
 
 
-routerApiUsers.post("/users", controllerRegister);
-routerApiUsers.get('/userinfo', checkAuthentication, controllerInfoUser)
+routerApiUsers.post("/users", postUser);
+routerApiUsers.get('/users', checkAuthentication, getUser)
 routerApiUsers.post('/login', passport.authenticate('login', { failWithError: true }), controllerLogin)
 routerApiUsers.post('/logout', controllerLogout)
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { controllerLogin, controllerLogout } from '../controllers/controllerUsers.js';
+import { controllerLogin, controllerLogout } from '../controllers/usersController.js';
 import passport from 'passport'
 
 const routerLogin = express.Router()

@@ -1,0 +1,373 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CoderHouse - TP final",
+    "dateExported": "2023-04-22T09:30:20.659Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "0b448a06-3c9c-4f7d-b6e2-f9ae32677c60",
+            "name": "Usuarios",
+            "containerId": "",
+            "created": "2023-03-03T17:33:10.803Z",
+            "sortNum": 150000
+        },
+        {
+            "_id": "7986aff4-cc6e-4cec-9309-0d02ddf6e22c",
+            "name": "Autenticacion",
+            "containerId": "",
+            "created": "2023-03-03T17:33:10.804Z",
+            "sortNum": 160000
+        },
+        {
+            "_id": "f97a1482-d018-48ec-b16d-e0daf7d2d35d",
+            "name": "Productos",
+            "containerId": "",
+            "created": "2023-03-03T17:33:10.805Z",
+            "sortNum": 170000
+        },
+        {
+            "_id": "2f7d1718-5b03-4d8e-818e-2c6078be1c05",
+            "name": "Carritos",
+            "containerId": "",
+            "created": "2023-03-03T17:33:10.806Z",
+            "sortNum": 180000
+        },
+        {
+            "_id": "f5c1db3b-e762-43ed-8772-8b1eeef71548",
+            "name": "Ordenes",
+            "containerId": "",
+            "created": "2023-04-21T23:34:33.093Z",
+            "sortNum": 200000
+        },
+        {
+            "_id": "f4f3b7b1-1386-45e8-b9c7-e100b95384d0",
+            "name": "Imagenes",
+            "containerId": "",
+            "created": "2023-04-22T00:19:38.427Z",
+            "sortNum": 210000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "2b7c44f4-662f-4bc4-a666-8abe86b09ee3",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f97a1482-d018-48ec-b16d-e0daf7d2d35d",
+            "name": "Ingresa un producto",
+            "url": "localhost:8080/api/products",
+            "method": "POST",
+            "sortNum": 2500,
+            "created": "2023-03-03T17:33:10.804Z",
+            "modified": "2023-04-22T08:22:02.361Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"coca\",\n    \"description\": \"lata\",\n    \"price\": 100,\n    \"image\": \"https://alemaxikiosco.com.ar/wp-content/uploads/2020/09/cocalata.jpg\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "65f060af-c3d6-46ec-a215-2cd66ab79acf",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f97a1482-d018-48ec-b16d-e0daf7d2d35d",
+            "name": "Obtiene todos los productos",
+            "url": "localhost:8080/api/products",
+            "method": "GET",
+            "sortNum": 5000,
+            "created": "2023-03-03T17:33:10.805Z",
+            "modified": "2023-03-04T11:54:56.530Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "336e62cd-d249-4a47-a126-89e5655491d4",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "7986aff4-cc6e-4cec-9309-0d02ddf6e22c",
+            "name": "Login (usuario)",
+            "url": "localhost:8080/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-03-03T17:33:10.806Z",
+            "modified": "2023-04-21T22:54:27.601Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"rodrigo@ethereal.email\",\n    \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "bf85b34b-cbfd-4a2e-ad65-773bfdc150af",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "7986aff4-cc6e-4cec-9309-0d02ddf6e22c",
+            "name": "Login (admin)",
+            "url": "localhost:8080/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-03-03T17:33:10.807Z",
+            "modified": "2023-03-04T19:35:42.686Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f8869c07-0c0d-4bc6-b4db-55eac2a76297",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f97a1482-d018-48ec-b16d-e0daf7d2d35d",
+            "name": "Obtiene un producto",
+            "url": "localhost:8080/api/products/2176981b-312b-454b-939f-55d4e58858f7",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-03-03T17:33:10.808Z",
+            "modified": "2023-04-22T09:19:27.180Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "24ef83ad-a841-4538-8abe-2402e9d0fb6f",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "7986aff4-cc6e-4cec-9309-0d02ddf6e22c",
+            "name": "Logout",
+            "url": "localhost:8080/logout",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-03-03T17:33:10.809Z",
+            "modified": "2023-03-04T18:29:29.807Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e4648921-1a90-4439-804d-f06bddf98c4f",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f97a1482-d018-48ec-b16d-e0daf7d2d35d",
+            "name": "Actualiza producto",
+            "url": "localhost:8080/api/products/2176981b-312b-454b-939f-55d4e58858f7",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-03-03T17:33:10.810Z",
+            "modified": "2023-04-22T09:19:44.237Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"coca\",\n    \"description\": \"coca cola\",\n    \"price\": 140,\n    \"image\": \"https://alemaxikiosco.com.ar/wp-content/uploads/2020/09/cocalata.jpg\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "16a5ae1a-14db-467b-8fe5-af65aa6a9a35",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f97a1482-d018-48ec-b16d-e0daf7d2d35d",
+            "name": "Elimina un producto",
+            "url": "localhost:8080/api/products/fe52a181-b276-4d76-a739-a361cebee84f",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-03-03T17:33:10.811Z",
+            "modified": "2023-04-22T09:18:51.787Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "573b2bca-7b40-48cf-86f0-b95c391c8427",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "2f7d1718-5b03-4d8e-818e-2c6078be1c05",
+            "name": "Agrega productos al carrito",
+            "url": "localhost:8080/api/shoppingcartproducts",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-03-03T17:33:10.812Z",
+            "modified": "2023-04-22T09:20:55.733Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"productId\": \"2176981b-312b-454b-939f-55d4e58858f7\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a0d22ed3-a4e4-4dd1-b1ca-3b3119f7d80b",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "0b448a06-3c9c-4f7d-b6e2-f9ae32677c60",
+            "name": "Crea un nuevo usuario (sin permisos adicionales)",
+            "url": "localhost:8080/api/users",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-03-03T17:33:10.813Z",
+            "modified": "2023-04-22T08:56:12.905Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"rodrigo@ethereal.email\",\n    \"password\": \"1234\",\n    \"name\": \"rodrigo\",\n    \"lastname\": \"montero\",\n    \"image\":\"{{IMAGE_URL_1}}\",\n    \"rol\":\"user\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "bce21a56-40b1-4ae0-8af5-38c2d1ac061e",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "2f7d1718-5b03-4d8e-818e-2c6078be1c05",
+            "name": "Lista productos del carrito",
+            "url": "localhost:8080/api/shoppingcartproducts",
+            "method": "GET",
+            "sortNum": 95000,
+            "created": "2023-03-03T17:33:10.814Z",
+            "modified": "2023-04-21T22:56:52.721Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "78f2cf34-b170-4995-8b86-421471d66c7c",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "2f7d1718-5b03-4d8e-818e-2c6078be1c05",
+            "name": "Quitar producto del carrito",
+            "url": "localhost:8080/api/shoppingcartproducts/2176981b-312b-454b-939f-55d4e58858f7",
+            "method": "DELETE",
+            "sortNum": 102500,
+            "created": "2023-03-03T17:33:10.815Z",
+            "modified": "2023-04-22T09:21:26.556Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9d9d2eb6-c419-473e-8149-e98955f013f2",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "0b448a06-3c9c-4f7d-b6e2-f9ae32677c60",
+            "name": "Crea un nuevo usuario (con permisos de administracion)",
+            "url": "localhost:8080/api/users",
+            "method": "POST",
+            "sortNum": 135000,
+            "created": "2023-03-03T17:33:10.817Z",
+            "modified": "2023-03-04T16:50:01.922Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"1234\",\n    \"name\": \"admin\",\n    \"lastname\": \"admin\",\n    \"image\":\"{{IMAGE_URL_2}}\",\n    \"rol\":\"admin\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5ae7c967-4c58-4218-a574-e6562013c564",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "0b448a06-3c9c-4f7d-b6e2-f9ae32677c60",
+            "name": "Obtener la información del usuario logueado",
+            "url": "localhost:8080/api/users",
+            "method": "GET",
+            "sortNum": 172500,
+            "created": "2023-03-03T17:33:10.818Z",
+            "modified": "2023-04-22T06:12:37.085Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{ACCESS_TOKEN}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cc233811-0eea-45a6-95cc-345144f9e3df",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f5c1db3b-e762-43ed-8772-8b1eeef71548",
+            "name": "Crea nueva orden",
+            "url": "localhost:8080/api/orders",
+            "method": "POST",
+            "sortNum": 202500,
+            "created": "2023-04-21T23:35:03.738Z",
+            "modified": "2023-04-22T00:06:21.238Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6b15dcc3-c928-4c7f-b3a0-0d77b7028ae4",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f5c1db3b-e762-43ed-8772-8b1eeef71548",
+            "name": "Devuelve ordenes",
+            "url": "localhost:8080/api/orders",
+            "method": "GET",
+            "sortNum": 212500,
+            "created": "2023-04-21T23:35:21.939Z",
+            "modified": "2023-04-22T00:09:49.382Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3c6ee342-0905-48e6-97a8-55dc89a715c9",
+            "colId": "182532b4-ce47-4252-8603-4bdd4d02ee0e",
+            "containerId": "f4f3b7b1-1386-45e8-b9c7-e100b95384d0",
+            "name": "Agregar imagen",
+            "url": "localhost:8080/api/images",
+            "method": "POST",
+            "sortNum": 222500,
+            "created": "2023-04-22T00:19:51.106Z",
+            "modified": "2023-04-22T02:28:57.968Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/rodrigomontero/Pictures/103367542.jpeg"
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "headers": [],
+        "tests": [],
+        "envId": "3d57881c-b643-4663-8419-a3edeb26c9dc"
+    }
+}

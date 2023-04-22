@@ -3,6 +3,16 @@
 ## 🏫 Comisión 32185
 ## 👨🏻‍🎓 Rodrigo Montero Durán
 
+### ✏️ Entrega Proyecto Final
+Mejoras:
+- Division en capas y mejora de arquitectura
+- Incorporación de reglas de negocio (validaciones, formatos, modelos, etc.)
+- Encriptación de contraseñas y generación de ids únicos
+- Creación de órdenes y multer para carga de imágenes
+Aclaraciones
+- Se creo el campo rol dentro de estructura de usuario para administrar perfiles (administrador y usuarios)
+- En lugar de /api/sessions se crearon dos endpoints /api/login y /api/logout 
+- Se deja disponible un JSON de thunder client para pruebas del proyecto en repositorio
 ### ✏️ Tercera Entrega Proyecto Final
 - Migración de bases a MongoDB Atlas
 - Incorporación logger pino

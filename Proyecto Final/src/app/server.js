@@ -2,20 +2,20 @@ import express from 'express';
 import session from 'express-session'
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
-import routerApiProducts from './routers/apiProducts.js';
-import routerApiCart from './routers/apiShoppingCart.js';
-import routerApiUsers from './routers/apiUsers.js'
-import routerLogin from './routers/routerLogin.js'
-import multer from 'multer'
+import routerApiProducts from '../routers/apiProducts.js';
+import routerApiCart from '../routers/apiShoppingCart.js';
+import routerApiOrders from '../routers/apiOrders.js';
+import routerApiUsers from '../routers/apiUsers.js'
+import routerApiImages from '../routers/apiImages.js'
+import routerLogin from '../routers/routerLogin.js'
 import MongoStore from 'connect-mongo'
 import { MongoClient } from 'mongodb'
-import { SESSION_SECRET, CNX_STR_MONGO } from './config/config.js';
-import { passDecryptor } from './controllers/jwt.js';
-import { read } from './containers/containerMongoDb.js';
+import { SESSION_SECRET, CNX_STR_MONGO } from '../config/config.js';
+import { passDecryptor } from '../controllers/jwt.js';
+import { read } from '../daos/daoMongoDb.js';
 import { Server as HttpServer } from 'http'
 
 
-const upload = multer()
 const app = express();
 export const httpServer = new HttpServer(app)
 
@@ -23,7 +23,6 @@ export const httpServer = new HttpServer(app)
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use('/public', express.static('public'))
-app.use(upload.array()); 
 app.use(express.static('public'));
 
 //passport
@@ -88,6 +87,8 @@ passport.use('login', new LocalStrategy(
 app.use('/api', routerApiProducts)
 app.use('/api', routerApiCart)
 app.use('/api', routerApiUsers)
+app.use('/api', routerApiOrders)
+app.use('/api', routerApiImages)
 app.use('/', routerLogin)
 app.all('*',(req,res) => {
     res.status(404).json('no implementado')

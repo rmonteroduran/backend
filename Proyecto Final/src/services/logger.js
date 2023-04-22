@@ -1,5 +1,5 @@
 import pino from 'pino'
-import { NODE_ENV } from './config.js'
+import { NODE_ENV } from '../config/config.js'
 
 function buildProdLogger() {
     const prodLogger = pino('debug.log')

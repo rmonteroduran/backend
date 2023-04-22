@@ -1,5 +1,5 @@
-import { read} from '../containers/containerMongoDb.js'
-import logger from '../config/logger.js'
+import { read} from '../daos/daoMongoDb.js'
+import logger from '../services/logger.js'
 
 async function adminCheck(req, res, next) {
     if (req.isAuthenticated()) {
