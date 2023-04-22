@@ -9,7 +9,6 @@ Mejoras:
 - Incorporación de reglas de negocio (validaciones, formatos, modelos, etc.)
 - Encriptación de contraseñas y generación de ids únicos
 - Creación de órdenes y multer para carga de imágenes
-Aclaraciones
 - Se creo el campo rol dentro de estructura de usuario para administrar perfiles (administrador y usuarios)
 - En lugar de /api/sessions se crearon dos endpoints /api/login y /api/logout 
 - Se deja disponible un JSON de thunder client para pruebas del proyecto en repositorio
