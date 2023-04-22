@@ -4,7 +4,6 @@
 ## 👨🏻‍🎓 Rodrigo Montero Durán
 
 ### ✏️ Entrega Proyecto Final
-Mejoras:
 - Division en capas y mejora de arquitectura
 - Incorporación de reglas de negocio (validaciones, formatos, modelos, etc.)
 - Encriptación de contraseñas y generación de ids únicos
